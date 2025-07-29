@@ -1,33 +1,36 @@
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from '@react-navigation/native';
-import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
-import './globals.css';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import './globals.css'; // Keep this here - main CSS import
+import * as SplashScreen from 'expo-splash-screen';
+import { useCallback } from 'react';
+import { View } from 'react-native';
+import useCustomFonts from '@/hooks/useFonts';
+
+// Keep the splash screen visible while we fetch resources
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    'Poppins-SemiBold': require('@/assets/fonts/Poppins-SemiBold.ttf'),
-  });
+  const fontsLoaded = useCustomFonts();
 
-  if (!loaded) {
-    // Async font loading only occurs in development.
-    return null;
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      // This tells the splash screen to hide immediately
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null; // Keep showing splash screen
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+      {/* This stack are basically the viewable screens in the "app" folder */}
       <Stack>
         <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+        <Stack.Screen name='index' options={{ headerShown: false }} />
         <Stack.Screen name='+not-found' />
       </Stack>
-      <StatusBar style='auto' />
-    </ThemeProvider>
+    </View>
   );
 }
