@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+@layer utilities {
+  .sidebar {
+    @apply bg-white border-r border-gray-300 fixed h-screen;
+  }
+
+  .header {
+    @apply bg-[#fff] p-16 w-full row-start-1 col-start-2;
+  }
+
+  .main {
+    @apply bg-[#fff] p-10 col-start-2 row-start-2;
+  }
+
+  .module-group--hover {
+    @apply group-hover:bg-blue-100 group-hover:text-blue-600 font-bold border-l-5 border-blue-600;
+  }
+
+  .auth-container {
+    @apply h-screen flex items-center justify-center;
+  }
+
+  .auth-wrapper {
+    @apply w-full max-w-[500px];
+  }
+
+  .auth-wrapper_header {
+    @apply text-2xl font-semibold text-center mb-2;
+  }
+
+  .auth-wrapper_description {
+    @apply text-sm text-center text-gray-700;
+  }
+
+  /* Shadcn utility classes */
+  .shad-select-trigger {
+    @apply !w-full !py-6 !shadow-none !border !border-gray-100 !cursor-pointer;
+  }
+
+  .shad-select-content {
+    @apply !bg-white !shadow-none !border !border-gray-100;
+  }
+
+  .shad-select-item {
+    @apply !py-4 hover:!bg-gray-100 !cursor-pointer;
+  }
+
+  .shad-input {
+    @apply !py-6 !shadow-none !border !border-gray-100 !cursor-pointer;
+  }
+
+  .shad-primary-btn {
+    @apply shadow-none py-6 px-12 capitalize bg-blue-500 text-white font-semibold;
+  }
+  .shad-secondary-btn {
+    @apply shadow-none p-6 capitalize bg-gray-950 text-white font-medium;
+  }
+}
