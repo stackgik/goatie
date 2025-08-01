@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         "poppins-semibold": ["Poppins-SemiBold", "san-serif"],
+        "plus_jakarta_sans-regular": ["PlusJakartaSans-Regular", "sans-serif"],
       },
       colors: {
         "c-green": {
