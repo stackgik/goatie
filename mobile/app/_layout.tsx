@@ -1,10 +1,10 @@
-import { Stack } from 'expo-router';
-import 'react-native-reanimated';
-import './globals.css'; // Keep this here - main CSS import
-import * as SplashScreen from 'expo-splash-screen';
-import { useCallback } from 'react';
-import { View } from 'react-native';
-import useCustomFonts from '@/hooks/useFonts';
+import { Stack } from "expo-router";
+import "react-native-reanimated";
+import "./globals.css"; // Keep this here - main CSS import
+import * as SplashScreen from "expo-splash-screen";
+import { useCallback } from "react";
+import { View } from "react-native";
+import useCustomFonts from "@/hooks/useFonts";
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -27,9 +27,9 @@ export default function RootLayout() {
     <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
       {/* This stack are basically the viewable screens in the "app" folder */}
       <Stack>
-        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-        <Stack.Screen name='index' options={{ headerShown: false }} />
-        <Stack.Screen name='+not-found' />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="+not-found" />
       </Stack>
     </View>
   );

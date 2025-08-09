@@ -92,7 +92,7 @@ const goatSchema = new Schema<GoatDocument>(
     healthStatus: {
       type: String,
       enum: {
-        values: ["healthy", "sick", "pregnant", "needs_attention"],
+        values: ["healthy", "sick", "pregnant", "needs attention"],
         message: "{VALUE} is not a valid goat health status",
       },
     },

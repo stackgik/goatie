@@ -64,7 +64,7 @@ export const mockGoats = [
     goatAge: 2,
     gender: "doe",
     weight: 120,
-    healthStatus: "recovering",
+    healthStatus: "needs attention",
     lastHealthCheck: "2024-02-15",
     birthDate: "2022-01-10",
     parent: "2",
@@ -92,7 +92,7 @@ export const mockGoats = [
     goatAge: 5,
     gender: "buck",
     weight: 195,
-    healthStatus: "chronic",
+    healthStatus: "needs attention",
     lastHealthCheck: "2024-01-30",
     birthDate: "2019-04-18",
     parent: null,
@@ -224,7 +224,7 @@ export const mockGoats = [
     goatAge: 4,
     gender: "doe",
     weight: 155,
-    healthStatus: "critical",
+    healthStatus: "sick",
     lastHealthCheck: "2024-02-20",
     birthDate: "2020-06-05",
     parent: null,
@@ -257,4 +257,18 @@ export const mockGoats = [
   },
 ];
 
-export default mockGoats;
+export const healthyGoats = [...mockGoats].filter(
+  (goat) => goat.healthStatus === "healthy"
+);
+
+export const sickGoats = [...mockGoats].filter(
+  (goat) => goat.healthStatus === "sick"
+);
+
+export const pregnantGoats = [...mockGoats].filter(
+  (goat) => goat.healthStatus === "pregnant"
+);
+
+export const criticalGoats = [...mockGoats].filter(
+  (goat) => goat.healthStatus === "needs attention"
+);
