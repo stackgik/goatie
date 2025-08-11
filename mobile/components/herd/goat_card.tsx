@@ -74,7 +74,7 @@ const GoatCard = () => {
         className=" py-3 rounded-md bg-c-green-600"
         activeOpacity={0.6}
       >
-        <Text className="text-c-green-400 font-plus_jakarta_sans-semibold font-bold capitalize text-center">
+        <Text className="text-c-green-100 font-plus_jakarta_sans-semibold capitalize text-center tracking-wide">
           view details
         </Text>
       </TouchableOpacity>

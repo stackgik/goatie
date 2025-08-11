@@ -12,7 +12,7 @@ import TabComponent from "../herd/tab_component";
 const filterTabConfig = [
   {
     title: "all",
-    count: 400 | mockGoats.length,
+    count: mockGoats.length,
   },
   {
     title: "healthy",

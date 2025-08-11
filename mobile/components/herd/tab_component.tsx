@@ -12,25 +12,23 @@ const TabComponent = ({ count, title, onPress }: TabComponentProps) => {
 
   return (
     <TouchableOpacity
-      className={`flex-row items-center gap-2 py-2 px-3 rounded-full mr-2 border ${
-        isActive
-          ? "bg-c-green-600 border-c-green-600"
-          : " border-c-neutral-300 bg-transparent"
+      className={`flex-row items-center gap-2 py-2 px-3 rounded-full mr-2 ${
+        isActive ? "bg-c-green-100" : " bg-c-neutral-300"
       }`}
       activeOpacity={0.7}
       onPress={onPress}
     >
       <Text
-        className={`font-plus_jakarta_sans-medium text-xs capitalize ${
-          isActive ? "text-white" : "text-c-neutral-600"
+        className={`font-plus_jakarta_sans-semibold text-xs capitalize ${
+          isActive ? "text-c-green-700" : "text-c-neutral-500"
         }`}
       >
         {title}
       </Text>
 
       <Text
-        className={`font-plus_jakarta_sans-semibold text-[11px]  h-4 min-w-6 flex rounded-full items-center justify-center text-c-neutral-800 transition-all duration-300 ${
-          isActive ? "bg-white" : "bg-c-neutral-100"
+        className={`font-plus_jakarta_sans-medium text-xs transition-all duration-300 ${
+          isActive ? "text-c-green-700" : "text-c-neutral-500"
         }`}
       >
         {count}
