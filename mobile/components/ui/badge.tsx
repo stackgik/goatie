@@ -1,20 +1,13 @@
 import { View, Text } from "react-native";
 import React from "react";
-
-// Define the health status type explicitly
-type HealthStatus = "healthy" | "sick" | "pregnant" | "needs attention";
-type StatusProperties = {
-  color: string;
-  text: string;
-  bgColor: string;
-};
+import { HealthStatus, StatusProperties } from "@/types";
 
 // Type the configuration object properly
 const herdBadgeConfig: Record<HealthStatus, StatusProperties> = {
   healthy: {
     color: "text-c-green-800",
     text: "healthy",
-    bgColor: "bg-c-green-400",
+    bgColor: "bg-c-green-100",
   },
   sick: {
     color: "text-c-red-800",
@@ -48,8 +41,8 @@ const Badge = ({ healthStatus }: BadgeProps) => {
   const config = herdBadgeConfig[healthStatus];
 
   return (
-    <View className={`${config.bgColor} px-4 py-1 rounded-lg`}>
-      <Text className={`${config.color} text-[12px] font-semibold capitalize`}>
+    <View className={`${config.bgColor} px-4 py-2 rounded-full`}>
+      <Text className={`${config.color} text-[13px] font-semibold capitalize`}>
         {config.text}
       </Text>
     </View>
