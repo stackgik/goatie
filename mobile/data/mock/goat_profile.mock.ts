@@ -1,6 +1,36 @@
-// src/data/mock/goats.mock.ts
+import { GoatProps } from "@/types";
 
-export const mockGoats = [
+export const actionButtonsConfig = [
+  {
+    id: 1,
+    iconName: "medical-outline",
+    iconColor: "#166534",
+    title: "Health",
+    bgColor: "bg-c-green-100",
+    textColor: "text-c-green-800",
+    actionType: "health",
+  },
+  {
+    id: 2,
+    iconName: "create-outline",
+    iconColor: "#854d0e",
+    title: "edit ",
+    bgColor: "bg-c-yellow-400",
+    textColor: "text-c-yellow-700",
+    actionType: "edit",
+  },
+  {
+    id: 3,
+    iconName: "archive-outline",
+    iconColor: "#b91c1c",
+    title: "archive",
+    bgColor: "bg-c-red-300",
+    textColor: "text-c-red-800",
+    actionType: "archive",
+  },
+];
+
+export const mockGoats: GoatProps[] = [
   {
     goatId: "1",
     goatName: "Bella",
@@ -120,7 +150,7 @@ export const mockGoats = [
     goatAge: 1,
     gender: "doe",
     weight: 90,
-    healthStatus: "healthy",
+    healthStatus: "pregnant",
     lastHealthCheck: "2024-02-18",
     birthDate: "2023-03-30",
     parent: "4",
