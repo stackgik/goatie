@@ -42,7 +42,6 @@ const FilterTab = () => {
       horizontal
       showsHorizontalScrollIndicator={false}
       keyExtractor={(item) => item.title}
-      className="gap-4"
     />
   );
 };

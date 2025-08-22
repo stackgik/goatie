@@ -1,4 +1,7 @@
-import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
+import BottomSheet, {
+  BottomSheetView,
+  BottomSheetScrollView,
+} from "@gorhom/bottom-sheet";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Text } from "react-native";
 import { useCallback, useMemo } from "react";
@@ -6,7 +9,7 @@ import { useCustomBottomSheet } from "@/hooks/useBottomSheet";
 
 const CustomBottomSheet = () => {
   const { isOpen, closeBottomSheet, content } = useCustomBottomSheet();
-  const snapPoints = useMemo(() => ["25%", "50%", "75%"], []);
+  const snapPoints = useMemo(() => ["50%", "85%"], []);
 
   const handleSheetChanges = useCallback(
     (index: number) => {
@@ -35,7 +38,9 @@ const CustomBottomSheet = () => {
           width: 40,
         }}
       >
-        <BottomSheetView className="flex-1 p-4 ">{content}</BottomSheetView>
+        <BottomSheetScrollView className="flex-1 ">
+          {content}
+        </BottomSheetScrollView>
       </BottomSheet>
     </GestureHandlerRootView>
   );
