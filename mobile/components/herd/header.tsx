@@ -1,13 +1,26 @@
-import { View, TouchableOpacity, TextInput } from "react-native";
+import {
+  View,
+  TouchableOpacity,
+  TextInput,
+  LayoutChangeEvent,
+} from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import CustomHeader from "../shared/custom_header";
 import FilterTab from "../shared/filter_tab";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-const Header = () => {
+const Header = ({
+  onHeightChange,
+}: {
+  onHeightChange: (event: LayoutChangeEvent) => void;
+}) => {
   return (
-    // The header wrapper
-    <View className="bg-white gap-4 p-4">
+    <SafeAreaView
+      edges={["top"]}
+      onLayout={onHeightChange}
+      className="bg-white gap-4 p-4 absolute top-0 left-0 right-0 pb-4 z-10"
+    >
       <View className="flex-row items-center gap-4">
         <TouchableOpacity
           activeOpacity={0.7}
@@ -24,16 +37,21 @@ const Header = () => {
         </TouchableOpacity>
       </View>
 
-      <View>
+      <View className="flex-row items-center bg-transparent border border-c-neutral-300 rounded-lg p-4">
+        <Ionicons name="search-outline" size={20} color="#9CA3AF" />
+
         <TextInput
-          className="rounded-lg px-3 py-2 text-sm text-c-neutral-800 bg-transparent border border-c-neutral-300"
+          className="rounded-lg px-3 text-[16px] text-c-neutral-600 font-plus_jakarta_sans-medium flex-1"
           placeholder="Search goats..."
           placeholderTextColor="#9CA3AF"
+          autoCapitalize="none"
+          autoCorrect={false}
+          returnKeyType="search"
         />
       </View>
 
       <FilterTab />
-    </View>
+    </SafeAreaView>
   );
 };
 

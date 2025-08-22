@@ -19,7 +19,7 @@ const TabComponent = ({ count, title, onPress }: TabComponentProps) => {
       onPress={onPress}
     >
       <Text
-        className={`font-plus_jakarta_sans-semibold text-xs capitalize ${
+        className={`font-plus_jakarta_sans-semibold text-base capitalize ${
           isActive ? "text-c-green-700" : "text-c-neutral-500"
         }`}
       >
@@ -27,7 +27,7 @@ const TabComponent = ({ count, title, onPress }: TabComponentProps) => {
       </Text>
 
       <Text
-        className={`font-plus_jakarta_sans-medium text-xs transition-all duration-300 ${
+        className={`font-plus_jakarta_sans-medium text-base transition-all duration-300 ${
           isActive ? "text-c-green-700" : "text-c-neutral-500"
         }`}
       >
