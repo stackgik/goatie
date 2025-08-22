@@ -5,6 +5,8 @@ import * as SplashScreen from "expo-splash-screen";
 import { useCallback } from "react";
 import { View } from "react-native";
 import useCustomFonts from "@/hooks/useFonts";
+import { BottomSheetProvider } from "@/hooks/useBottomSheet";
+import CustomBottomSheet from "@/components/shared/bottom_sheet";
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -24,13 +26,20 @@ export default function RootLayout() {
   }
 
   return (
-    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-      {/* This stack are basically the viewable screens in the "app" folder */}
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </View>
+    <BottomSheetProvider>
+      <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+        {/* This stack are basically the viewable screens in the "app" folder */}
+        <Stack>
+          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="(screens)/(tabs)"
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+      </View>
+      <CustomBottomSheet />
+    </BottomSheetProvider>
   );
 }
